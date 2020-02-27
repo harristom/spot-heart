@@ -30,16 +30,12 @@ const LikeThisIntentHandler = {
                 .withLinkAccountCard()
                 .getResponse();
         } else {
-            return request.get({
-            url: "https://api.spotify.com/v1/me/player/currently-playing",
-            // Send access token as bearer auth
-            auth: {
-                "bearer": req.getSession().details.user.accessToken
-            },
-            // Parse results as JSON
-            json: true
-        })
-            const songName = data.body.item.name
+            const headers = {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${accessToken}`,
+            };
+            var songName = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
             const speakOutput = `You're listening to ${songName}`;
             return handlerInput.responseBuilder
                 .speak(speakOutput)
