@@ -20,6 +20,7 @@ const getNowPlaying = async token => {
             headers: { Authorization: `Bearer ${token}` }
         };
         const { data } = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', config);
+        console.log(data);
         return data;
     } catch (error) {
         console.error('Cannot fetch currently playing', error);
