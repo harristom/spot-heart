@@ -15,10 +15,10 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
-const HelloWorldIntentHandler = {
+const LikeThisIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent';
     },
     handle(handlerInput) {
         const speakOutput = 'Hello World!';
