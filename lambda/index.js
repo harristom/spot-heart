@@ -2,6 +2,7 @@
 // Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 // session persistence, api calls, and more.
 const Alexa = require('ask-sdk-core');
+const axios = require('axios');
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -15,6 +16,16 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
+
+const getNowPlaying = async () => {
+    try {
+        const { data } = await axios.get('https://api.spotify.com/v1/me/player/currently-playing');
+        return data;
+    } catch (error) {
+        console.error('Cannot fetch currently playing', error);
+    }
+};
+
 const LikeThisIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
