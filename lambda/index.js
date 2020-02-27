@@ -14,7 +14,7 @@ const LaunchRequestHandler = {
     }
 };
 
-const getNowPlaying = async (token) => {
+const getNowPlaying = async token => {
     try {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
