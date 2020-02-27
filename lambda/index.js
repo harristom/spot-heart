@@ -29,8 +29,8 @@ const LikeThisIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent';
     },
     handle(handlerInput) {
-        const song = await getNowPlaying;
-        const speakOutput = `You're listening to ${song}`;
+        const song = await getNowPlaying
+        const speakOutput = `You're listening to ${songName}`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .getResponse();
