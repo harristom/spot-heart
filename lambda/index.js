@@ -32,11 +32,23 @@ const LikeThisIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent';
     },
     handle(handlerInput) {
-        const songName = getNowPlaying.item.name;
-        const speakOutput = `You're listening to ${songName}`;
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .getResponse();
+        var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
+        if (accessToken == undefined){
+            // The request did not include a token, so tell the user to link
+            // accounts and return a LinkAccount card
+            var speechText = "Please use the Alexa app to link your Amazon account with your Spotify account.";
+            return handlerInput.responseBuilder
+                .speak(speechText)
+                .withLinkAccountCard()
+                .getResponse();
+        } else {
+            const songName = getNowPlaying(accessToken).item.name;
+            const speakOutput = `You're listening to ${songName}`;
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }
+
     }
 };
 const HelpIntentHandler = {
