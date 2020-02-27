@@ -1,7 +1,5 @@
 const Alexa = require('ask-sdk-core');
 const axios = require('axios');
-var SpotifyWebApi = require('spotify-web-api-node');
-var spotifyApi = new SpotifyWebApi();
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -15,45 +13,6 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
-
-// const getNowPlaying = async token => {
-    // try {
-        // const config = {
-            // headers: { Authorization: `Bearer ${token}` }
-        // };
-        // const { data } = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', config);
-        // console.log(data);
-        // return data;
-    // } catch (error) {
-        // console.error('Cannot fetch currently playing', error);
-    // }
-// };
-
-// const LikeThisIntentHandler = {
-    // canHandle(handlerInput) {
-        // return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            // && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent';
-    // },
-    // async handle(handlerInput) {
-        // var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
-        // if (accessToken == undefined){
-            // // The request did not include a token, so tell the user to link
-            // // accounts and return a LinkAccount card
-            // var speechText = "Please use the Alexa app to link your Amazon account with your Spotify account.";
-            // return handlerInput.responseBuilder
-                // .speak(speechText)
-                // .withLinkAccountCard()
-                // .getResponse();
-        // } else {
-            // const songName = await getNowPlaying(accessToken).item.name;
-            // const speakOutput = `You're listening to ${songName}`;
-            // return handlerInput.responseBuilder
-                // .speak(speakOutput)
-                // .getResponse();
-        // }
-
-    // }
-// };
 
 const LikeThisIntentHandler = {
     canHandle(handlerInput) {
@@ -71,20 +30,20 @@ const LikeThisIntentHandler = {
                 .withLinkAccountCard()
                 .getResponse();
         } else {
-            spotifyApi.setAccessToken(accessToken);
-            spotifyApi.getMyCurrentPlaybackState({
-              })
-              .then(function(data) {
-                // Output items
-                console.log("Now Playing: ",data.body);
-                const songName = data.body.item.name
-                const speakOutput = `You're listening to ${songName}`;
-                return handlerInput.responseBuilder
-                    .speak(speakOutput)
-                    .getResponse();
-              }, function(err) {
-                console.log('Something went wrong!', err);
-              });
+            return request.get({
+            url: "https://api.spotify.com/v1/me/player/currently-playing",
+            // Send access token as bearer auth
+            auth: {
+                "bearer": req.getSession().details.user.accessToken
+            },
+            // Parse results as JSON
+            json: true
+        })
+            const songName = data.body.item.name
+            const speakOutput = `You're listening to ${songName}`;
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
 
         }
 
