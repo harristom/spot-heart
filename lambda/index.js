@@ -31,13 +31,16 @@ const LikeThisIntentHandler = {
                 .getResponse();
         } else {
             const headers = {
-              Accept: 'application/json',
               'Content-Type': 'application/json',
               Authorization: `Bearer ${accessToken}`,
             };
-            const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
-            console.log(response.data);
-            const speakOutput = `You're listening to ${response.data.item.name}`;
+            const song = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers }).data.item;
+            const response = await axios.put(`https://api.spotify.com/v1/me/tracks?ids=${song.id}`)
+            if (response.status = 200){
+                const speakOutput = `OK, I saved ${song.name}`;
+            } else {
+                const speakOutput = `Sorry, something went wrong`;
+            }
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
