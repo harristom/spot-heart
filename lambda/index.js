@@ -31,7 +31,6 @@ const LikeThisIntentHandler = {
                 .getResponse();
         } else {
             const headers = {
-              Accept: 'application/json',
               'Content-Type': 'application/json',
               Authorization: `Bearer ${accessToken}`,
             };
