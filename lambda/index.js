@@ -36,10 +36,11 @@ const LikeThisIntentHandler = {
             };
             const song = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers }).data.item;
             const response = await axios.put(`https://api.spotify.com/v1/me/tracks?ids=${song.id}`)
+            let speakOutput
             if (response.status = 200){
-                const speakOutput = `OK, I saved ${song.name}`
+                speakOutput = `OK, I saved ${song.name}`
             } else {
-                const speakOutput = `Sorry, something went wrong`
+                speakOutput = `Sorry, something went wrong`
             }
             return handlerInput.responseBuilder
                 .speak(speakOutput)
