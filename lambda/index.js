@@ -35,8 +35,9 @@ const LikeThisIntentHandler = {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${accessToken}`,
             };
-            var songName = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers }).item.name;
-            const speakOutput = `You're listening to ${songName}`;
+            var { data } = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
+            console.log(data.body)
+            const speakOutput = `You're listening to ${data.item.name}`;
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
