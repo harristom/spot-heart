@@ -35,13 +35,13 @@ const LikeThisIntentHandler = {
               Authorization: `Bearer ${accessToken}`,
             };
             const song = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers }).data.item;
-            const response = await axios.put(`https://api.spotify.com/v1/me/tracks?ids=${song.id}`)
+            //const response = await axios.put(`https://api.spotify.com/v1/me/tracks?ids=${song.id}`)
             let speakOutput
-            if (response.status = 200){
+            //if (response.status = 200){
                 speakOutput = `OK, I saved ${song.name}`
-            } else {
-                speakOutput = `Sorry, something went wrong`
-            }
+            //} else {
+            //    speakOutput = `Sorry, something went wrong`
+            //}
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
