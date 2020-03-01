@@ -22,9 +22,10 @@ const LaunchRequestHandler = {
             };
             let response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
             axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
-            const speakOutput = `Welcome to Spot Heart. Would you like me to save ${response.data.item.name}?"`;
+            const speakOutput = `Welcome to Spot Heart. Would you like me to save ${response.data.item.name}?`;
             return handlerInput.responseBuilder
                 .speak(speakOutput)
+                .reprompt(`Would you like me to save ${response.data.item.name}?`)
                 .getResponse();
         }
     }
