@@ -34,7 +34,8 @@ const LaunchRequestHandler = {
 const LikeThisIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent';
+            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent');
     },
     async handle(handlerInput) {
         var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
