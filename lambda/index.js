@@ -5,12 +5,28 @@ const LaunchRequestHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
-    handle(handlerInput) {
-        const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
+    async handle(handlerInput) {
+        var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
+        if (accessToken == undefined) {
+            // The request did not include a token, so tell the user to link
+            // accounts and return a LinkAccount card
+            var speechText = "Welcome to Spot Heart. Please use the Alexa app to link your Amazon account with your Spotify account.";
+            return handlerInput.responseBuilder
+                .speak(speechText)
+                .withLinkAccountCard()
+                .getResponse();
+        } else {
+            const headers = {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${accessToken}`,
+            };
+            let response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
+            axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
+            const speakOutput = `Welcome to Spot Heart. Would you like me to save ${response.data.item.name}?"`;
+            return handlerInput.responseBuilder
+                .speak(speakOutput)
+                .getResponse();
+        }
     }
 };
 
