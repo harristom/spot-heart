@@ -40,9 +40,7 @@ const LikeThisIntentHandler = {
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
-
         }
-
     }
 };
 
@@ -52,7 +50,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = 'To like the track currently playing on Spotify, just say "like this"';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
