@@ -21,7 +21,7 @@ const LikeThisIntentHandler = {
     },
     async handle(handlerInput) {
         var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
-        if (accessToken == undefined){
+        if (accessToken == undefined) {
             // The request did not include a token, so tell the user to link
             // accounts and return a LinkAccount card
             var speechText = "Please use the Alexa app to link your Amazon account with your Spotify account.";
