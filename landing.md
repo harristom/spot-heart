@@ -1,11 +1,8 @@
 # Spot Heart
 
-> Like the song currently playing on Spotify with Alexa
+To use this skill, you need to link your Spotify account. 
 
-To use this skill, you must log in with the following third-party (3P) services:
-* Spotify
-
-**Click below to log in to Spotify:**
+**Click the link below to be redirected to Spotify:**
 
 <a id="login-link">Log in</a>
 
