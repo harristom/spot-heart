@@ -12,7 +12,7 @@ const LikeThisIntentHandler = {
         if (accessToken == undefined) {
             // The request did not include a token, so tell the user to link
             // accounts and return a LinkAccount card
-            var speechText = "Please use the Alexa app to link your Spotify account.";
+            var speechText = "You need to link your Spotify account, I've sent the instructions to your Alexa app.";
             return handlerInput.responseBuilder
                 .speak(speechText)
                 .withLinkAccountCard()
@@ -23,8 +23,13 @@ const LikeThisIntentHandler = {
               Authorization: `Bearer ${accessToken}`,
             };
             let response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
-            axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
-            const speakOutput = `OK, I saved ${response.data.item.name}`;
+            let speakOutput
+            if (response.data.is_playing) {
+                axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
+                speakOutput = `OK, I saved ${response.data.item.name}`;
+            } else {
+                speakOutput = `Sorry, I couldn't find the currently playing track`;
+            }
             return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
@@ -38,7 +43,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'To like the track currently playing on Spotify, just say "like this"';
+        const speakOutput = 'To like the track currently playing on Spotify, just say "Alexa, ask Spot Heart to like this"';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
