@@ -1,6 +1,6 @@
 # Spot Heart
 
-To use this skill, you need to link your Spotify account. 
+To use this skill, you need to link your Spotify account. The only permissions requested are those necessary to see the currently playing track and add it to your library. I don't see your Spotify login credentials and no user data is stored.
 
 **Click the link below to be redirected to Spotify:**
 
