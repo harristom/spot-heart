@@ -9,7 +9,7 @@ const LikeThisIntentHandler = {
     },
     async handle(handlerInput) {
         var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
-        if (accessToken == undefined) {
+        if (accessToken === undefined) {
             // The request did not include a token, so tell the user to link
             // accounts and return a LinkAccount card
             var speechText = "You need to link your Spotify account, I've sent the instructions to your Alexa app.";
@@ -25,8 +25,12 @@ const LikeThisIntentHandler = {
             let response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
             let speakOutput
             if (response.data.is_playing) {
+                if (response.data.item.is_local) {
+                    speakOutput = `Sorry, Spotify doesn't allow saving local files. Even though ${response.data.item.name} is a total banger!`;
+                } else {
                 axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
                 speakOutput = `OK, I saved ${response.data.item.name}`;
+                }
             } else {
                 speakOutput = `Sorry, I couldn't find the currently playing track`;
             }
