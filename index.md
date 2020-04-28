@@ -2,7 +2,7 @@
 
 Spot Heart is an Alexa skill to 💚 the currently playing track on Spotify.
 
-The built-in Spotify functionality on Alexa is weridly missing the ability to like or save tracks to your library. This skill fixes that. Just say:
+The built-in Spotify functionality on Alexa is weirdly missing the ability to like or save tracks to your library. This skill fixes that. Just say:
 
 > "Alexa, ask Spot Heart to like this"
 
