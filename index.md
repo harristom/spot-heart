@@ -14,7 +14,7 @@ Or, for brevity's sake:
 
 Spot Heart is available in the following marketplaces. More marketplaces and languages are coming soon.
 
-* [amazon.co.uk (British English)](https://www.amazon.co.uk/dp/B087P98VJY/)
+* amazon.co.uk (British English): [desktop](https://www.amazon.co.uk/dp/B087P98VJY/)/[mobile](https://skills-store.amazon.com/deeplink/dp/B087P98VJY)
 
 ### Privacy
 
