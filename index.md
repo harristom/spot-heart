@@ -18,4 +18,4 @@ Spot Heart is available in the following marketplaces. More marketplaces and lan
 
 ### Privacy
 
-I'm not gonna be all up in your business, that's why the skill has a [privacy policy](privacy).
+I'm not gonna be all up in your business, that's why the skill has a [privacy policy](./privacy.md).
