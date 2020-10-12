@@ -14,11 +14,11 @@ Or, for brevity's sake:
 
 Spot Heart is available in the following marketplaces. More marketplaces and languages are coming soon.
 
-* amazon.co.uk (English): [desktop](https://www.amazon.co.uk/dp/B087P98VJY/)/[mobile](https://skills-store.amazon.com/deeplink/dp/B087P98VJY)
+* amazon.co.uk (English): [desktop](https://www.amazon.co.uk/dp/B087P98VJY/)/[mobile](https://skills-store.amazon.co.uk/deeplink/dp/B087P98VJY)
 * amazon.com (English): [desktop](https://www.amazon.com/dp/B087P98VJY/)/[mobile](https://skills-store.amazon.com/deeplink/dp/B087P98VJY)
-* amazon.ca (English): [desktop](https://www.amazon.ca/dp/B087P98VJY)/[mobile](https://skills-store.amazon.com/deeplink/dp/B087P98VJY)
-* amazon.com.au (English): [desktop](https://www.amazon.com.au/dp/B087P98VJY)/[mobile](https://skills-store.amazon.com/deeplink/dp/B087P98VJY)
-* amazon.in (English): [desktop](https://www.amazon.in/dp/B087P98VJY)/[mobile](https://skills-store.amazon.com/deeplink/dp/B087P98VJY)
+* amazon.ca (English): [desktop](https://www.amazon.ca/dp/B087P98VJY)/[mobile](https://skills-store.amazon.ca/deeplink/dp/B087P98VJY)
+* amazon.com.au (English): [desktop](https://www.amazon.com.au/dp/B087P98VJY)/[mobile](https://skills-store.amazon.com.au/deeplink/dp/B087P98VJY)
+* amazon.in (English): [desktop](https://www.amazon.in/dp/B087P98VJY)/[mobile](https://skills-store.amazon.in/deeplink/dp/B087P98VJY)
 
 ### Privacy
 
