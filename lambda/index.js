@@ -1,6 +1,8 @@
 const Alexa = require('ask-sdk-core');
 const axios = require('axios');
 
+// Dev skill code (not deployed)
+
 const LikeThisIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
