@@ -1,7 +1,6 @@
 const Alexa = require('ask-sdk-core');
 const axios = require('axios');
 
-// Dev skill code (deployed but not promoted)
 
 const LikeThisIntentHandler = {
     canHandle(handlerInput) {
