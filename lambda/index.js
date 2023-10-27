@@ -1,8 +1,6 @@
 const Alexa = require('ask-sdk-core');
 const axios = require('axios');
 
-// Test
-
 const LikeThisIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
@@ -10,13 +8,14 @@ const LikeThisIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'LikeThisIntent');
     },
     async handle(handlerInput) {
-        var accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
+        const accessToken = handlerInput.requestEnvelope.context.System.user.accessToken;
+        let speakOutput;
         if (accessToken === undefined) {
             // The request did not include a token, so tell the user to link
             // accounts and return a LinkAccount card
-            var speechText = "You need to link your Spotify account, I've sent the instructions to your Alexa app.";
+            speakOutput = "You need to link your Spotify account, I've sent the instructions to your Alexa app.";
             return handlerInput.responseBuilder
-                .speak(speechText)
+                .speak(speakOutput)
                 .withLinkAccountCard()
                 .getResponse();
         } else {
@@ -24,14 +23,13 @@ const LikeThisIntentHandler = {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${accessToken}`,
             };
-            let response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
-            let speakOutput
+            const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
             if (response.data.is_playing) {
                 if (response.data.item.is_local) {
                     speakOutput = `Sorry, Spotify doesn't allow saving local files. Even though ${response.data.item.name} is a total banger!`;
                 } else {
-                axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
-                speakOutput = `OK, I saved ${response.data.item.name}`;
+                    axios.put('https://api.spotify.com/v1/me/tracks', { ids: [response.data.item.id] }, { headers });
+                    speakOutput = `OK, I saved ${response.data.item.name}`;
                 }
             } else {
                 speakOutput = `Sorry, I couldn't find the currently playing track`;
