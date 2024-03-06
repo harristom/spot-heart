@@ -1,0 +1,45 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "LikeThisIntent",
+          "samples": [
+            "to like the currently playing track",
+            "to like this track",
+            "to save this track",
+            "save this",
+            "heart this",
+            "save this track",
+            "that i want to save this track",
+            "that i like this",
+            "to heart this",
+            "to save this",
+            "i like this",
+            "like this",
+            "to like this"
+          ]
+        }
+      ],
+      "types": [],
+      "invocationName": "spot heart"
+    }
+  }
+}

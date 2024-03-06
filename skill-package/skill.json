@@ -1,0 +1,158 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Quickly \"like\" tracks on Spotify",
+          "examplePhrases": [
+            "Alexa, ask Spot Heart to like this",
+            "Alexa, open Spot Heart"
+          ],
+          "keywords": [
+            "spotify",
+            "like",
+            "heart",
+            "save",
+            "library",
+            "add",
+            "spotify",
+            "connect"
+          ],
+          "name": "Spot Heart",
+          "description": "Like whatever\u0027s currently playing on Spotify\n\nThis skill likes the currently playing track on Spotify on any device. Simply link your Spotify account in the Alexa app when prompted, play on any device, and ask Spot Heart to like the track.",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        },
+        "en-CA": {
+          "summary": "Quickly \"like\" tracks on Spotify",
+          "examplePhrases": [
+            "Alexa, ask Spot Heart to like this",
+            "Alexa, open Spot Heart"
+          ],
+          "keywords": [
+            "spotify",
+            "like",
+            "heart",
+            "save",
+            "library",
+            "add",
+            "spotify",
+            "connect"
+          ],
+          "name": "Spot Heart",
+          "description": "Like whatever\u0027s currently playing on Spotify\n\nThis skill likes the currently playing track on Spotify on any device. Simply link your Spotify account in the Alexa app when prompted, play on any device, and ask Spot Heart to like the track.",
+          "smallIconUri": "file://assets/images/en-CA_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-CA_largeIconUri.png"
+        },
+        "en-IN": {
+          "summary": "Quickly \"like\" tracks on Spotify",
+          "examplePhrases": [
+            "Alexa, ask Spot Heart to like this",
+            "Alexa, open Spot Heart"
+          ],
+          "keywords": [
+            "spotify",
+            "like",
+            "heart",
+            "save",
+            "library",
+            "add",
+            "spotify",
+            "connect"
+          ],
+          "name": "Spot Heart",
+          "description": "Like whatever\u0027s currently playing on Spotify\n\nThis skill likes the currently playing track on Spotify on any device. Simply link your Spotify account in the Alexa app when prompted, play on any device, and ask Spot Heart to like the track.",
+          "smallIconUri": "file://assets/images/en-IN_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-IN_largeIconUri.png"
+        },
+        "en-AU": {
+          "summary": "Quickly \"like\" tracks on Spotify",
+          "examplePhrases": [
+            "Alexa, ask Spot Heart to like this",
+            "Alexa, open Spot Heart"
+          ],
+          "keywords": [
+            "spotify",
+            "like",
+            "heart",
+            "save",
+            "library",
+            "add",
+            "spotify",
+            "connect"
+          ],
+          "name": "Spot Heart",
+          "description": "Like whatever\u0027s currently playing on Spotify\n\nThis skill likes the currently playing track on Spotify on any device. Simply link your Spotify account in the Alexa app when prompted, play on any device, and ask Spot Heart to like the track.",
+          "smallIconUri": "file://assets/images/en-AU_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-AU_largeIconUri.png"
+        },
+        "en-GB": {
+          "summary": "Quickly \"like\" tracks on Spotify",
+          "examplePhrases": [
+            "Alexa, ask Spot Heart to like this",
+            "Alexa, open Spot Heart"
+          ],
+          "keywords": [
+            "spotify",
+            "like",
+            "heart",
+            "save",
+            "library",
+            "add",
+            "spotify",
+            "connect"
+          ],
+          "name": "Spot Heart",
+          "description": "Like whatever\u0027s currently playing on Spotify\n\nThis skill likes the currently playing track on Spotify on any device. Simply link your Spotify account in the Alexa app when prompted, play on any device, and ask Spot Heart to like the track.",
+          "smallIconUri": "file://assets/images/en-GB_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-GB_largeIconUri.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Link your Spotify account, play a song on that account, ask the skill to \"like\" it. If a song is playing on that Spotify account it will be saved, if no song is playing the skill will tell you it can\u0027t find the currently playing track. Please provide DETAILED instructions to reproduce if it doesn\u0027t work. e.g. confirm that you linked your Spotify account, whether you have Spotify premium, what device you are using on.",
+      "category": "STREAMING_SERVICE",
+      "automaticClonedLocale": {
+        "locales": [
+          {
+            "source": "en-GB"
+          }
+        ]
+      },
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:219465421222:function:a0c629c6-d6ec-4956-b6d9-d3d724d8f8d1:Release_2"
+        },
+        "interfaces": [],
+        "locales": {}
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://harristom.github.io/spot-heart/privacy"
+        },
+        "en-CA": {
+          "privacyPolicyUrl": "https://harristom.github.io/spot-heart/privacy"
+        },
+        "en-IN": {
+          "privacyPolicyUrl": "https://harristom.github.io/spot-heart/privacy"
+        },
+        "en-AU": {
+          "privacyPolicyUrl": "https://harristom.github.io/spot-heart/privacy"
+        },
+        "en-GB": {
+          "privacyPolicyUrl": "https://harristom.github.io/spot-heart/privacy"
+        }
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
